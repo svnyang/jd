@@ -22,13 +22,13 @@ cron "10 0 0 * * *" script-path=https://raw.githubusercontent.com/dompling/Scrip
 10 0 0 * * * https://raw.githubusercontent.com/dompling/Script/master/birthdayCountDown/index.js
 */
 var mediaImg = ""; // 头像图片默认显示第一张图片，随机 bing 应 api 背景：https://api.dujin.org/pic
-var username = ""; // 姓名
-var birthday = ""; // 生日日期
+var username = "孙"; // 姓名
+var birthday = "1988-09-18"; // 生日日期
 var physiologicalDefault = ""; // 最近一次来周期时间
 var physiologicalCycle = ""; // 下一次周期
 var eday = ""; // 相识日期
 var loveWords = true;
-var nongli = true; // 是否农历生日
+var nongli = false; // 是否农历生日
 
 const $ = API("birthday", true);
 
