@@ -23,7 +23,7 @@ cron "10 0 0 * * *" script-path=https://raw.githubusercontent.com/dompling/Scrip
 */
 var mediaImg = ""; // 头像图片默认显示第一张图片，随机 bing 应 api 背景：https://api.dujin.org/pic
 var username = "母亲"; // 姓名
-var birthday = "1969-01-04"; // 生日日期
+var birthday = "1966-12-27"; // 生日日期
 var physiologicalDefault = ""; // 最近一次来周期时间
 var physiologicalCycle = ""; // 下一次周期
 var eday = ""; // 相识日期
