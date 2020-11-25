@@ -23,7 +23,7 @@ cron "5 6-18/6 * * *" script-path=https://raw.githubusercontent.com/lxk0301/jd_s
 jd免费水果 搬的https://github.com/liuxiaoyucc/jd-helper/blob/a6f275d9785748014fc6cca821e58427162e9336/fruit/fruit.js
 */
 const $ = new Env('东东农场');
-let cookiesArr = [], cookie = '', jdFruitShareArr = ['d72518bee3a841ab8913e90e54d4edf0','0339b552535849f7a3c9f1f6f0b983d8'], isBox = false, notify, newShareCodes;
+let cookiesArr = [], cookie = '', jdFruitShareArr = ['3d2602dcd2ad4d40ba4c53bc7b494f20@ca4472c0e8a54a84af66c4f12552bd63@0339b552535849f7a3c9f1f6f0b983d8@402d908578e540efbe2841cff907d5f7','d72518bee3a841ab8913e90e54d4edf0@ca4472c0e8a54a84af66c4f12552bd63@3d2602dcd2ad4d40ba4c53bc7b494f20@402d908578e540efbe2841cff907d5f7'], isBox = false, notify, newShareCodes;
 //助力好友分享码(最多4个,否则后面的助力失败),原因:京东农场每人每天只有四次助力机会
 //此此内容是IOS用户下载脚本到本地使用，填写互助码的地方，同一京东账号的好友互助码请使用@符号隔开。
 //下面给出两个账号的填写示例（iOS只支持2个京东账号）
