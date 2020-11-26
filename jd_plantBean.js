@@ -27,7 +27,7 @@ const $ = new Env('京东种豆得豆');
 //Node.js用户请在jdCookie.js处填写京东ck;
 //ios等软件用户直接用NobyDa的jd cookie
 let jdNotify = true;//是否开启静默运行。默认true开启
-let cookiesArr = [], cookie = '', jdPlantBeanShareArr = ['4npkonnsy7xi2vj4gkz3kinpfamgy5favz2u6pq@66j4yt3ebl5ierjljoszp7e4izzbzaqhi5k2unz2afwlyqsgnasq@olmijoxgmjutyrsovl2xalt2tbtfmg6sqldcb3q','zfaq4vqopicu5vgly2bvtsneyy5ac3f4ijdgqji@4npkonnsy7xi3p6pjfxg6ct5gll42gmvnz7zgoy@6dygkptofggtp6ffhbowku3xgu'], isBox = false, notify, newShareCodes, option, message,subTitle;
+let cookiesArr = [], cookie = '', jdPlantBeanShareArr = ['4npkonnsy7xi2vj4gkz3kinpfamgy5favz2u6pq@zcnnt2kim7qwoynx5swaukuon4@olmijoxgmjutyrsovl2xalt2tbtfmg6sqldcb3q','zfaq4vqopicu5vgly2bvtsneyy5ac3f4ijdgqji@zcnnt2kim7qwoynx5swaukuon4@6dygkptofggtp6ffhbowku3xgu'], isBox = false, notify, newShareCodes, option, message,subTitle;
 //京东接口地址
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 //助力好友分享码(最多3个,否则后面的助力失败)
