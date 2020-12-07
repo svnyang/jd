@@ -1,6 +1,6 @@
 /*
 东东水果:脚本更新地址 https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_fruit.js
-更新时间：2020-11-17
+更新时间：2020-11-30
 东东农场活动链接：https://h5.m.jd.com/babelDiy/Zeus/3KSjXqQabiTuD1cJ28QskrpWoBKT/index.html
 已支持IOS双京东账号,Node.js支持N个京东账号
 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
@@ -29,9 +29,9 @@ let cookiesArr = [], cookie = '', jdFruitShareArr = ['3d2602dcd2ad4d40ba4c53bc7b
 //下面给出两个账号的填写示例（iOS只支持2个京东账号）
 let shareCodes = [ // 这个列表填入你要助力的好友的shareCode
    //账号一的好友shareCode,不同好友的shareCode中间用@符号隔开
-  '3d2602dcd2ad4d40ba4c53bc7b494f20@ca4472c0e8a54a84af66c4f12552bd63@0339b552535849f7a3c9f1f6f0b983d8@402d908578e540efbe2841cff907d5f7',
-  //账号二的好友shareCode,不同好友的shareCode中间用@符号隔开
-  'd72518bee3a841ab8913e90e54d4edf0@ca4472c0e8a54a84af66c4f12552bd63@3d2602dcd2ad4d40ba4c53bc7b494f20@402d908578e540efbe2841cff907d5f7',
+   '3d2602dcd2ad4d40ba4c53bc7b494f20@ca4472c0e8a54a84af66c4f12552bd63@0339b552535849f7a3c9f1f6f0b983d8@402d908578e540efbe2841cff907d5f7',
+   //账号二的好友shareCode,不同好友的shareCode中间用@符号隔开
+   'd72518bee3a841ab8913e90e54d4edf0@ca4472c0e8a54a84af66c4f12552bd63@3d2602dcd2ad4d40ba4c53bc7b494f20@402d908578e540efbe2841cff907d5f7',
 ]
 let message = '', subTitle = '', option = {}, isFruitFinished = false;
 const retainWater = 100;//保留水滴大于多少g,默认100g;
@@ -764,9 +764,17 @@ async function clockInIn() {
 }
 //
 async function getAwardInviteFriend() {
-  await friendListInitForFarm();
-  await receiveFriendInvite();
+  await friendListInitForFarm();//查询好友列表
   console.log(`\n今日已邀请好友${$.friendList.inviteFriendCount}个 / 每日邀请上限${$.friendList.inviteFriendMax}个`);
+  console.log(`开始删除${$.friendList.friends.length}个好友,可拿每天的邀请奖励`);
+  for (let friend of $.friendList.friends) {
+    console.log(`\n开始删除好友 [${friend.shareCode}]`);
+    const deleteFriendForFarm = await request('deleteFriendForFarm', { "shareCode": `${friend.shareCode}`,"version":8,"channel":1 });
+    if (deleteFriendForFarm && deleteFriendForFarm.code === '0') {
+      console.log(`删除好友 [${friend.shareCode}] 成功\n`);
+    }
+  }
+  await receiveFriendInvite();//为他人助力,接受邀请成为别人的好友
   if ($.friendList.inviteFriendCount > 0) {
     if ($.friendList.inviteFriendCount > $.friendList.inviteFriendGotAwardCount) {
       console.log('开始领取邀请好友的奖励');
@@ -865,9 +873,9 @@ async function receiveFriendInvite() {
     await inviteFriend(code);
     console.log(`接收邀请成为好友结果:${JSON.stringify($.inviteFriendRes.helpResult)}`)
     if ($.inviteFriendRes.helpResult.code === '0') {
-      console.log(`您已成为${$.inviteFriendRes.helpResult.masterUserInfo.nickName}的好友`)
+      console.log(`成功,您已成为${$.inviteFriendRes.helpResult.masterUserInfo.nickName}的好友`)
     } else if ($.inviteFriendRes.helpResult.code === '17') {
-      console.log(`对方已是您的好友`)
+      console.log(`失败,对方已是您的好友`)
     }
   }
   // console.log(`开始接受6fbd26cc27ac44d6a7fed34092453f77的邀请\n`)
